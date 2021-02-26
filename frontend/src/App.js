@@ -3,7 +3,7 @@ import './App.css';
 function App() {
   return (
     <div>
-      hello world
+      Hello world! This is the final build test.
     </div>
   );
 }
