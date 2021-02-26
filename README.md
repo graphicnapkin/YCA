@@ -1,7 +1,9 @@
 # YCA
 
-## To run : npm run start
-## To build : npm run build
+## Follow these steps to make a UI change:
+### 1) make your change in the frontend subdirectory
+### 2) run the following in the frontend subdirectory: npm run build
+### 3) run the following in the root npm run build && npm start
 
 Components should be created in the app subdirectory.
 Front end is still in ReactJS, only the backend is in TSX.
