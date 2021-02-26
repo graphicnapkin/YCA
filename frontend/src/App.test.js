@@ -1,9 +1,18 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders div', () => {
   render(<App />);
-  // Our first failing test!
-  const linkElement = screen.getByText(/learn react/i);
+  const linkElement = screen.getByText('Hello world! This is the final FINAL build test (for real).');
   expect(linkElement).toBeInTheDocument();
 });
+
+test('renders input field', () => {
+  return false 
+  //...
+})
+
+test('renders submit button', () => {
+  return false 
+  //...
+})
