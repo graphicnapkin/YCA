@@ -1,13 +1,19 @@
 import Home from './Home'
-import { Col, Row, Container } from 'react-bootstrap'
+import SearchBar from './SearchBar'
+import { Container } from 'react-bootstrap'
 
 function App() {
   return (
-    <Container style={{ paddingTop: 225, paddingBottom: 8}}>
-      <Home/>
-      Hello world! This is the final FINAL build test (for real).
+    <Container style={containerStyle}>
+      <Home />
+      <SearchBar />
     </Container>
-  );
+  )
 }
 
-export default App;
+const containerStyle = {
+  paddingTop: 225,
+  paddingBottom: 8,
+  fontSize: '2rem'
+}
+export default App

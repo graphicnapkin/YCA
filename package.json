@@ -24,6 +24,7 @@
     "typescript": "^4.2.2"
   },
   "devDependencies": {
+    "eslint-plugin-html": "^6.1.1",
     "ts-node-dev": "^1.1.6"
   }
 }
