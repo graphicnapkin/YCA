@@ -14,7 +14,7 @@ function URLParse (url) {
       //path
       //video code
       //query string
-  const pattern = /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/
+  const pattern = ^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+
   if (!pattern.test(url)) {
     return { isValid: false }
   }
