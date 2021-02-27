@@ -15,8 +15,9 @@ export class Server {
             res.send("You have reached the API!");
         });
 
+        // The below get request needs to always be the last in this list
         this.app.get("*", (req: Request, res: Response): void => {
-            res.sendFile(path.resolve("./") + "/build/frontend/index.html");
+            res.status(404).send('404: Page Not Found');
         });
     }
 
