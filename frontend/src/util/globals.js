@@ -1,5 +1,3 @@
-https://www.youtube.com/watch?v=qOVAbKKSH10
-
 export function getYoutubeVideoIdFromURL(url) {
   const validURL = URLParse(url)
   if (!validURL.isValid) throw TypeError

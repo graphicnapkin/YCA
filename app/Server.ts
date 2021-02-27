@@ -18,13 +18,13 @@ export class Server {
 
   constructor(app: Express) {
     this.app = app
-    this.app.use(limiter)
     // Enable once we're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
     //  see https://expressjs.com/en/guide/behind-proxies.html
     //  this.app.set('trust proxy', 1);
 
     this.app.use(express.static(path.resolve('./') + '/build/frontend'))
 
+    this.app.use(limiter)
     // 'any' needs to be changed to whatever interface conforms to youtube api return
     this.app.get(
       '/api/search',
