@@ -29,6 +29,9 @@ export class Server {
     this.app.get(
       '/api/search',
       async (req: Request, res: Response): Promise<any> => {
+        res.setHeader('Access-Control-Allow-Origin', '*')
+        res.setHeader('Access-Control-Allow-Methods', '*')
+        res.setHeader('Access-Control-Allow-Headers', '*')
         const searchString = req.query.q
         const maxResults = 100
 
