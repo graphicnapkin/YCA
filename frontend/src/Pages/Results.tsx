@@ -5,7 +5,7 @@ interface ResultsProps {
   results: CommentThreadsResult;
 }
 
-export const Results: React.FC<ResultsProps> = () => {
+export const Results: React.FC<ResultsProps> = (props) => {
   return (
     <div>hi</div>
   )
