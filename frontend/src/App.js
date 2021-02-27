@@ -1,21 +1,12 @@
-import Home from './Home'
-import SearchBar from './SearchBar'
-import { Container } from 'react-bootstrap'
-import { getYoutubeVideoIdFromURL } from './util/globals'
-import { CommentThreadsResult } from './util/commonInterfaces'
+import Home from './Pages/Home'
+import { Route, Switch }  from 'react-router-dom'
 
 function App() {
   return (
-    <Container style={containerStyle}>
-      <Home />
-      <SearchBar />
-    </Container>
+    <Switch>
+      <Route exact path='/' component={Home}/>
+    </Switch>
   )
 }
 
-const containerStyle = {
-  paddingTop: 225,
-  paddingBottom: 8,
-  fontSize: '2rem'
-}
 export default App
