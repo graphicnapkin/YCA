@@ -1,7 +1,11 @@
 import React from 'react';
 import { CommentThreadsResult }  from '../util/commonInterfaces';
 
-export const Results: React.FC<CommentThreadsResult> = props => {
+interface ResultsProps {
+  results: CommentThreadsResult;
+}
+
+export const Results: React.FC<ResultsProps> = () => {
   return (
     <div>hi</div>
   )

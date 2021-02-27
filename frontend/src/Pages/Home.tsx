@@ -1,15 +1,19 @@
 import React from 'react'
 import { Jumbotron } from 'react-bootstrap'
-import SearchBar from '../Components/SearchBar'
+import { SearchBar } from '../Components/SearchBar'
 import { Container } from 'react-bootstrap'
 
-export const Home: React.FC<{}> = () => {
+interface HomeProps {
+  resultSetHook: Function;
+}
+
+export const Home: React.FC<HomeProps> = (props) => {
   return (
     <Container style={containerStyle}>
       <Jumbotron style={jumboStyle}>
         <div>YouTube Comment Analyser</div>
       </Jumbotron>
-      <SearchBar />
+      <SearchBar resultSetHook={props.resultSetHook} />
     </Container>
   )
 }
@@ -30,5 +34,3 @@ const containerStyle = {
   paddingBottom: 8,
   fontSize: '2rem'
 }
-
-export default Home

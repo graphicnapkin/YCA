@@ -1,21 +1,24 @@
 import React, { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
-import { getYoutubeVideoIdFromURL, getComments } from '../util/globals.ts'
+import { getYoutubeVideoIdFromURL, getComments } from '../util/globals'
 
-const SearchBar = () => {
+interface SearchBarProps {
+  resultSetHook: Function;
+}
+
+export const SearchBar: React.FC<SearchBarProps> = ({ resultSetHook }) => {
   const [videoURL, setVideoURL] = useState('')
-  const [results, setResults] = useState()
   const history = useHistory()
 
-  async function handleSubmit(event) {
+  async function handleSubmit(event: any) {
     event.preventDefault()
     let id = ''
     try {
       id = getYoutubeVideoIdFromURL(videoURL)
       const res = await getComments(id)
-      setResults(res)
-      history.push('./Results');
+      resultSetHook(res)
+      history.push('./results')
     } catch (error) {
       console.log(error)
       ////should build notification banner componet to display messages
@@ -47,5 +50,3 @@ const SearchBar = () => {
     </div>
   )
 }
-
-export default SearchBar
