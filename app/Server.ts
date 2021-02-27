@@ -5,7 +5,7 @@ import * as path from 'path'
 const fetch = require('node-fetch')
 const rateLimit = require('express-rate-limit')
 
-// Limits rate of request to 1 per second per IP
+// Limits rate of request to 5 per minute per IP
 //  This shouldn't be an issue since we'll have a synchronous
 //  api response which will take some time.
 const limiter = rateLimit({
