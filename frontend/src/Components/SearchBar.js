@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom'
 import { getYoutubeVideoIdFromURL, getComments } from '../util/globals.ts'
 
 const SearchBar = () => {
   const [videoURL, setVideoURL] = useState('')
   const [results, setResults] = useState()
+  const history = useHistory()
 
   async function handleSubmit(event) {
     event.preventDefault()
@@ -13,11 +15,11 @@ const SearchBar = () => {
       id = getYoutubeVideoIdFromURL(videoURL)
       const res = await getComments(id)
       setResults(res)
-      // setResults(JSON.parse(res, null, 2))
+      history.push('./Results');
     } catch (error) {
+      console.log(error)
       ////should build notification banner componet to display messages
     }
-    //console.log('state of videoURL at submit: ', videoURL)
   }
   return (
     <div className='grid-container'>
@@ -37,11 +39,11 @@ const SearchBar = () => {
           Submit
         </Button>
       </Form>
-      {results && (
+       {/*results && (
         <div style={{ fontSize: 8 }}>
           {JSON.stringify(results.results, null, 4)}
         </div>
-      )}
+       )*/}
     </div>
   )
 }

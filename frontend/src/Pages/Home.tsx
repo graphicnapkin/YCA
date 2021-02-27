@@ -3,17 +3,18 @@ import { Jumbotron } from 'react-bootstrap'
 import SearchBar from '../Components/SearchBar'
 import { Container } from 'react-bootstrap'
 
-const Home = () => {
+export const Home: React.FC<{}> = () => {
   return (
     <Container style={containerStyle}>
       <Jumbotron style={jumboStyle}>
-        <div style={headerStyle}>YouTube Comment Analyser</div>
+        <div>YouTube Comment Analyser</div>
       </Jumbotron>
       <SearchBar />
     </Container>
   )
 }
 
+// HeaderStyle not TS compatible?
 const headerStyle = {
   fontSize: '2.5rem',
   fontWeight: 'bold',
