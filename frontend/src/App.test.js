@@ -10,9 +10,15 @@ test('renders div', () => {
 test('renders input field', () => {
   return false 
   //...
-})
+});
 
 test('renders submit button', () => {
   return false 
   //...
-})
+});
+
+test('loads environment variables', () => {
+  // Need to load API keys for example into REACT_APP_ENV variables...
+  return false
+  //...
+});
