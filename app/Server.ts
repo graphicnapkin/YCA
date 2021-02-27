@@ -30,7 +30,7 @@ export class Server {
         this.app.get("/api/search", (req: Request, res: Response): any => {
             // This would be a good function to make async in the future, for now let's stick to sync...
             //  Get the api request in the correct searchString format
-            const searchString = `youtubevideoformatWhatever&v?=${req.query.q}`;
+            const searchString = req.query.q;
             // This is maxResults per page of response
             const maxResults = 100;
 
