@@ -4,7 +4,7 @@ import { Jumbotron } from 'react-bootstrap'
 const Home = () => {
   return (
     <Jumbotron style={jumboStyle}>
-      <div style={headerStyle}>YouTube Content Analyser</div>
+      <div style={headerStyle}>YouTube Comment Analyser</div>
     </Jumbotron>
   )
 }

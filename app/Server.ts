@@ -9,7 +9,7 @@ const rateLimit = require('express-rate-limit')
 //  This shouldn't be an issue since we'll have a synchronous
 //  api response which will take some time.
 const limiter = rateLimit({
-  windowMS: 1000,
+  windowMs: 1000,
   max: 1
 })
 
