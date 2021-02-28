@@ -1,10 +1,8 @@
 import React from 'react';
 import * as CSS from 'csstype';
-import { Container } from 'react-bootstrap';
-import { SearchBar } from '../Components/SearchBar';
 
 
-export const Header: React.FC = ( props ) => {
+export const Header: React.FC = () => {
   return (
     <div style={ containerStyle }>
       <div style={ headerStyle }>
@@ -16,7 +14,7 @@ export const Header: React.FC = ( props ) => {
   );
 };
 
-const bigLStyle = {
+const bigLStyle: CSS.Properties = {
   fontSize: '3rem',
   color: 'red',
   marginRight: '-1px'
