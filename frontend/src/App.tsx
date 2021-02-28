@@ -1,25 +1,27 @@
-import { Home } from './Pages/Home'
-import { Results } from './Pages/Results'
-import { Route, Switch }  from 'react-router-dom'
-import React, { useState } from 'react'
-import {CommentThreadsResult} from './util/commonInterfaces'
+import { Header } from './Pages/Header';
+import { Results } from './Pages/Results';
+import { Route, Switch } from 'react-router-dom';
+import React, { useState } from 'react';
+import { CommentThreadsResult } from './util/commonInterfaces';
+import { SearchBar } from './Components/SearchBar';
 
 function App() {
-  const [commentThreadsResults, setResults] = useState({} as CommentThreadsResult)
+  const [ commentThreadsResults, setResults ] = useState( {} as CommentThreadsResult );
   return (
-    <Switch>
-      <Route exact path='/'
-        render={
-          ()=><Home resultSetHook={setResults}/>
-        }
-      />
-      <Route path='/results'
-        render={
-          ()=><Results results={commentThreadsResults}/>
-        }
-      />
-    </Switch>
-  )
+    <>
+      <Header />
+      <Switch>
+        <Route
+          exact path='/'
+          children={ <SearchBar resultSetHook={ setResults } /> }
+        />
+        <Route
+          path='/results'
+          children={ <Results results={ commentThreadsResults } /> }
+        />
+      </Switch>
+    </>
+  );
 }
 
-export default App
+export default App;
