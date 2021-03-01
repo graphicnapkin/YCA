@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as CSS from 'csstype';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Container } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { getYoutubeVideoIdFromURL, getComments } from '../util/globals';
 
@@ -26,7 +26,7 @@ export const SearchBar: React.FC<SearchBarProps> = ( { resultSetHook } ) => {
     }
   }
   return (
-    <div className='grid-container' >
+    <Container className='grid-container' >
       <Form onSubmit={ handleSubmit }>
         <Form.Group controlId='videoURLSubmit' style={ { display: 'inline-block', width: '80%' } }>
           <Form.Label style={ labelStyle }>Link to video:</Form.Label>
@@ -48,7 +48,7 @@ export const SearchBar: React.FC<SearchBarProps> = ( { resultSetHook } ) => {
           {JSON.stringify(results.results, null, 4)}
         </div>
        )*/}
-    </div>
+    </Container>
   );
 };
 
