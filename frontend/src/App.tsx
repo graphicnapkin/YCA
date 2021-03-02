@@ -6,7 +6,7 @@ import { CommentThreadsResult } from './util/commonInterfaces';
 import { SearchBar } from './Components/SearchBar';
 
 function App() {
-  const [ commentThreadsResults, setResults ] = useState( {} as CommentThreadsResult );
+  const [ commentThreadsResults, setResults ] = useState( {} as CommentThreadsResult[] );
   return (
     <>
       <Header />
