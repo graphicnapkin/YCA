@@ -6,18 +6,21 @@ import { CommentThreadsResult } from './util/commonInterfaces';
 import { SearchBar } from './Components/SearchBar';
 
 function App() {
-  const [ commentThreadsResults, setResults ] = useState( {} as CommentThreadsResult );
+  const [commentThreadsResults, setResults] = useState(
+    {} as CommentThreadsResult
+  );
   return (
     <>
       <Header />
       <Switch>
         <Route
-          exact path='/'
-          children={ <SearchBar resultSetHook={ setResults } /> }
+          exact
+          path='/'
+          children={<SearchBar resultSetHook={setResults} />}
         />
         <Route
           path='/results'
-          children={ <Results results={ commentThreadsResults } /> }
+          children={<Results results={commentThreadsResults} />}
         />
       </Switch>
     </>

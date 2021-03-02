@@ -8,13 +8,12 @@ interface ResultsProps {
   results: CommentThreadsResult;
 }
 
-export const Results: React.FC<ResultsProps> = ( { results } ) => {
+export const Results: React.FC<ResultsProps> = ({ results }) => {
   return (
     <Container>
-      <h3>Commment Count: { commentCount( results ) }</h3>
+      <h3>Commment Count: {commentCount(results)}</h3>
       <h3>Top Words 10:</h3>
-      {topWords( results, 10 ) }
+      {topWords(results, 10)}
     </Container>
-
   );
 };
