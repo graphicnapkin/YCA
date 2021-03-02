@@ -6,10 +6,7 @@ interface ResultsProps {
   results: CommentThreadsResult[];
 }
 
-export const Results: React.FC<ResultsProps> = ( { results } ) => {
-  console.log(results)
-  return (
-    <Container>
-    </Container>
-  );
+export const Results: React.FC<ResultsProps> = ({ results }) => {
+  console.log(results);
+  return <Container></Container>;
 };
