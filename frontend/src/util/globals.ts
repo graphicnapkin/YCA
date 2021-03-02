@@ -10,7 +10,7 @@ export async function getComments( id: string ) {
   //will need to refactor to handle paging of results
   console.log( 'starting search' );
   const response = await fetch( `http://localhost:8080/api/search?q=${ id }` );
-  const results: CommentThreadsResult = await response.json();
+  const results: CommentThreadsResult[] = await response.json();
   return results;
 }
 

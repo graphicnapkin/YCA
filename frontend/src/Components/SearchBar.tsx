@@ -43,11 +43,6 @@ export const SearchBar: React.FC<SearchBarProps> = ( { resultSetHook } ) => {
           Submit
         </Button>
       </Form>
-      {/*results && (
-        <div style={{ fontSize: 8 }}>
-          {JSON.stringify(results.results, null, 4)}
-        </div>
-       )*/}
     </Container>
   );
 };

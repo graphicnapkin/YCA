@@ -34,6 +34,14 @@ export class Server {
         res.setHeader( 'Access-Control-Allow-Headers', '*' );
         const searchString = req.query.q;
         const maxResults = 100;
+        let finalResults = [];
+        let nextPageExists = false;
+        let nextPageToken = '';
+        let apiQuery = 'https://www.googleapis.com/youtube/v3/commentThreads' +
+          `?key=${ process.env.REACT_APP_YOUTUBE_API_KEY }` +
+          '&textFormat=plainText&part=snippet' +
+          `&videoId=${ searchString }` +
+          `&maxResults=${ maxResults }`;
 
         // Single page form of API request:
         // https://www.googleapis.com/youtube/v3/commentThreads?key={your_api_key}&textFormat=plainText&part=snippet&videoId={video_id}&maxResults=100
@@ -41,18 +49,22 @@ export class Server {
         // https://www.googleapis.com/youtube/v3/commentThreads?key={your_api_key}&textFormat=plainText&part=snippet&videoId={video_id}&maxResults=100&pageToken={nextPageToken}
 
         try {
-          const response = await fetch(
-            'https://www.googleapis.com/youtube/v3/commentThreads' +
-            `?key=${ process.env.REACT_APP_YOUTUBE_API_KEY }` +
-            '&textFormat=plainText&part=snippet' +
-            `&videoId=${ searchString }` +
-            `&maxResults=${ maxResults }`
-          );
+          const response = await fetch( apiQuery );
           const results = await response.json();
+          finalResults.push( results );
+          nextPageToken = results.nextPageToken;
+          nextPageExists = ( !( nextPageToken === undefined ) );
+          while ( nextPageExists ) {
+            const nextResponse = await fetch( apiQuery + `&pageToken=${nextPageToken}` );
+            const nextResults = await nextResponse.json();
+            finalResults.push( nextResults );
+            nextPageToken = nextResults.nextPageToken;
+            nextPageExists = ( !( nextPageToken === undefined ) );
+          }
 
           return res.json( {
             status: true,
-            results
+            results: finalResults,
           } );
         } catch ( err ) {
           // For now just use a generic error response
